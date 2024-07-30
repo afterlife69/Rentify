@@ -8,7 +8,7 @@ export default function EditPost() {
     const [post , setPost] = useState({place: '', bedrooms: '', bathrooms: '', price: '', description: '', address: '', sellerName: '', sellerEmail: ''});
     const navigate = useNavigate();
     useEffect(() => {
-        axios.get(`http://localhost:5000/getPost/${id}`)
+        axios.get(`https://rentify-6klr.onrender.com/getPost/${id}`)
             .then(response => {
                 setPost(response.data);
             })
@@ -18,7 +18,7 @@ export default function EditPost() {
     }, []);
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post(`http://localhost:5000/editPost/${id}`, post)
+        axios.post(`https://rentify-6klr.onrender.com/editPost/${id}`, post)
             .then(response => {
                 alert('Posting edited successfully');
                 navigate('/seller');
