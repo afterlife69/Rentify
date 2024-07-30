@@ -10,7 +10,7 @@ export default function Login(){
             return;
         }
         e.preventDefault();
-        axios.post('http://localhost:5000/login',det)
+        axios.post('https://rentify-6klr.onrender.com/login',det)
         .then(res => {
             if(res.status == 200){
                 alert('Login successful');
