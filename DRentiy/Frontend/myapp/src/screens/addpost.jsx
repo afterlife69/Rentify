@@ -14,7 +14,7 @@ export default function AddPost() {
           return; // Stop submission if validation fails
         }
     
-        axios.post(`http://localhost:5000/addposting/`, det)
+        axios.post(`https://rentify-6klr.onrender.com/addposting/`, det)
           .then((response) => {
             alert("Posting added successfully");
             navigate("/seller");
