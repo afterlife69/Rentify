@@ -20,7 +20,7 @@ export default function Home() {
     const [sellerDetails, setSellerDetails] = useState(null);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/allPost')
+        axios.get('https://rentify-6klr.onrender.com/allPost')
             .then(response => {
                 setPostings(response.data);
                 
@@ -57,14 +57,14 @@ export default function Home() {
         setShowFilters(!showFilters);
     };
     const handleInterest = (sellerEmail) => {
-        axios.get(`http://localhost:5000/getSeller/${sellerEmail}`)
+        axios.get(`https://rentify-6klr.onrender.com/getSeller/${sellerEmail}`)
           .then(seller => {
             const sellerName = `${seller.data[0].firstname} ${seller.data[0].lastname}`;
             const buyerName = `${user.firstname} ${user.lastname}`;
             const buyerEmail = user.email;
       
             // Send the email request to the server
-            axios.post('http://localhost:5000/send-interest-email', {
+            axios.post('https://rentify-6klr.onrender.com/send-interest-email', {
               sellerEmail,
               buyerEmail,
               sellerName,
@@ -93,7 +93,7 @@ export default function Home() {
     }
     const handleLike = (id, likes) => {
         setIsLiking(true);
-        axios.put(`http://localhost:5000/toggleLike/${id}`, { email: user.email })
+        axios.put(`https://rentify-6klr.onrender.com/toggleLike/${id}`, { email: user.email })
         .then(response => {
             setPostings(postings.map(posting => {
                 if (posting._id === id) {
