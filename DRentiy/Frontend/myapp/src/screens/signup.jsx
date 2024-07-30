@@ -10,7 +10,7 @@ export default function Signup(){
             return;
         }
         e.preventDefault();
-        axios.post('http://localhost:5000/signup',det).then(res => {
+        axios.post('https://rentify-6klr.onrender.com/signup',det).then(res => {
             alert('Signup successful');
             navigate('/login');
         }).catch(err => {
