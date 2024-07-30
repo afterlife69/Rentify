@@ -18,7 +18,7 @@ export default function SellerView() {
         }
         else{
             const email = user.email;
-            axios.get(`http://localhost:5000/ret/${email}`)
+            axios.get(`https://rentify-6klr.onrender.com/ret/${email}`)
             .then(response => {
                 setPostings(response.data);
             })
@@ -41,7 +41,7 @@ export default function SellerView() {
         navigate(`/editpost`, { state: { id } });
     }
     const handleDel = (id) => {
-        axios.delete(`http://localhost:5000/deletePost/${id}`)
+        axios.delete(`https://rentify-6klr.onrender.com/deletePost/${id}`)
             .then(response => {
                 alert('Posting deleted successfully');
                 window.location.reload();
@@ -52,7 +52,7 @@ export default function SellerView() {
     }
     const handleLike = (id, likes) => {
         setIsLiking(true);
-        axios.put(`http://localhost:5000/toggleLike/${id}`, { email: user.email })
+        axios.put(`https://rentify-6klr.onrender.com/toggleLike/${id}`, { email: user.email })
         .then(response => {
             setPostings(postings.map(posting => {
                 if (posting._id === id) {
