@@ -19,7 +19,7 @@ const transporter = nodemailer.createTransport({
 });
 
 // Connect to MongoDB
-mongoose.connect("process.env.MONGODB_URI") // paste mongo db link here
+mongoose.connect(process.env.MONGODB_URI) // paste mongo db link here
 .then(()=>app.listen(5000))
 .then(()=>console.log('connected'))
 .catch((err)=>console.log(err))
